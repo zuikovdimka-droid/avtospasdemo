@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="theme-color" content="#0c0e11">
+  <title>Автоспас — демо-концепт лендинга</title>
+  <meta name="description" content="Демо-концепт лендинга автосервиса. Не официальный сайт.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="demo-bar" role="note">Демо-концепт, не официальный сайт, удалим по первой просьбе</div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top">
+        <span class="logo" aria-hidden="true">А</span>
+        <span class="brand-text">
+          <span data-name>Автоспас</span>
+          <small data-hours-wrap>Ежедневно, <span data-hours></span></small>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Основная навигация">
+        <a href="#services">Услуги</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#booking">Запись</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="header-phone" data-phone hidden></a>
+        <a class="btn btn-sm" href="#booking">Записаться</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+       <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="eyebrow">Автосервис</p>
+          <h1><span data-name>Автоспас</span> — <span class="accent">запись на обслуживание</span></h1>
+          <p class="lead" data-hours-line>Работаем <span data-hours></span>.</p>
+          <div class="actions">
+            <a class="btn" href="#booking">Записаться</a>
+            <a class="btn btn-ghost" data-map href="#" target="_blank" rel="noopener">Как добраться</a>
+          </div>
+          <ul class="chips">
+            <li data-hours-chip hidden></li>
+            <li>Демо-концепт</li>
+          </ul>
+        </div>
+                <div class="hero-media">
+          <svg class="hero-img" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#1b222a"/>
+                <stop offset="100%" stop-color="#0c0e11"/>
+              </linearGradient>
+              <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ff4d2e"/>
+                <stop offset="100%" stop-color="#ff8552"/>
+              </linearGradient>
+            </defs>
+            
+            <!-- Фон -->
+            <rect width="100%" height="100%" fill="url(#bg)"/>
+            
+            <!-- Сетка (для технологичности) -->
+            <path d="M0,100 L800,100 M0,200 L800,200 M0,300 L800,300 M0,400 L800,400 M100,0 L100,500 M200,0 L200,500 M300,0 L300,500 M400,0 L400,500 M500,0 L500,500 M600,0 L600,500 M700,0 L700,500" stroke="#252c35" stroke-width="1" opacity="0.4"/>
+            
+            <!-- Автомобильное колесо -->
+            <g transform="translate(400, 250)">
+              <circle r="180" fill="none" stroke="#39424d" stroke-width="2"/>
+              <circle r="130" fill="none" stroke="url(#accent)" stroke-width="8" opacity="0.9"/>
+              <circle r="90" fill="none" stroke="#252c35" stroke-width="4"/>
+              <circle r="25" fill="url(#accent)"/>
+              
+              <!-- Спицы -->
+              <line x1="0" y1="-130" x2="0" y2="-90" stroke="url(#accent)" stroke-width="10" stroke-linecap="round"/>
+              <line x1="0" y1="130" x2="0" y2="90" stroke="url(#accent)" stroke-width="10" stroke-linecap="round"/>
+              <line x1="-130" y1="0" x2="-90" y2="0" stroke="url(#accent)" stroke-width="10" stroke-linecap="round"/>
+              <line x1="130" y1="0" x2="90" y2="0" stroke="url(#accent)" stroke-width="10" stroke-linecap="round"/>
+              
+              <line x1="-92" y1="-92" x2="-63" y2="-63" stroke="#39424d" stroke-width="10" stroke-linecap="round"/>
+              <line x1="92" y1="92" x2="63" y2="63" stroke="#39424d" stroke-width="10" stroke-linecap="round"/>
+              <line x1="-92" y1="92" x2="-63" y2="63" stroke="#39424d" stroke-width="10" stroke-linecap="round"/>
+              <line x1="92" y1="-92" x2="63" y2="-63" stroke="#39424d" stroke-width="10" stroke-linecap="round"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head">
+          <h2>Услуги и цены</h2>
+          <p class="muted">Цены — из прайса сервиса. Фото — иллюстрации к услугам.</p>
+        </div>
+        <div class="grid-services" id="services-grid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="reviews">
+      <div class="container">
+        <div class="section-head">
+          <h2>Отзывы</h2>
+          <p class="muted">Пересказ отзывов клиентов: формулировки обобщены, имена авторов и сотрудников не публикуются.</p>
+        </div>
+        <div class="reviews-grid" id="reviews-grid"></div>
+        <p class="note">В отзывах с оценкой ниже 5★ — то, что клиенты просили поправить. Мы не скрываем критику.</p>
+      </div>
+    </section>
+
+    <section class="section" id="booking">
+      <div class="container booking">
+        <div class="booking-text">
+          <h2>Запись на сервис</h2>
+          <p class="muted">Демо-форма: заявки не отправляются и никуда не сохраняются.</p>
+          <p class="muted" data-hours-line2>Режим работы: <span data-hours></span>.</p>
+        </div>
+        <form class="form" novalidate>
+          <label>Имя
+            <input type="text" name="name" placeholder="Как к вам обращаться" autocomplete="name">
+          </label>
+          <label>Телефон
+            <input type="tel" name="phone" placeholder="+7 ..." autocomplete="tel">
+          </label>
+          <label class="full">Комментарий
+            <textarea name="comment" rows="3" placeholder="Марка авто, что нужно сделать"></textarea>
+          </label>
+          <button class="btn full" type="submit">Отправить заявку</button>
+          <p class="form-status full" role="status" hidden>Это демо: данные не отправляются.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" id="contacts">
+      <div class="container">
+        <h2>Контакты</h2>
+        <div class="contacts-grid">
+          <div class="contact-card" data-hours-card>
+            <h3>Режим работы</h3>
+            <p data-hours></p>
+          </div>
+          <div class="contact-card" data-address-card hidden>
+            <h3>Адрес</h3>
+            <p data-address></p>
+          </div>
+          <div class="contact-card" data-phone-card hidden>
+            <h3>Телефон</h3>
+            <p><a data-phone></a></p>
+          </div>
+          <div class="contact-card">
+            <h3>На карте</h3>
+            <p><a data-map href="#" target="_blank" rel="noopener">Открыть в Яндекс.Картах</a></p>
+          </div>
+        </div>
+        <p class="note">Адрес и телефон в демо не указаны — этих данных нет в исходнике.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p><strong data-name>Автоспас</strong> · <span data-hours></span></p>
+      <p class="muted">Демо-концепт, не официальный сайт, удалим по первой просьбе. <span data-year></span></p>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

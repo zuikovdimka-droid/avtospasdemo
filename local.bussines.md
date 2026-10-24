@@ -1,0 +1,1 @@
+Автоспас - https://yandex.ru/maps/org/avtospas/1070164398/?ll=37.639685%2C55.777561&mode=search&sll=37.648263%2C55.777147&source=serp_navig&sspn=0.796462%2C0.450434&text=автоспас&z=16.01 - Пн - Вс с 9:00 до 21:00 

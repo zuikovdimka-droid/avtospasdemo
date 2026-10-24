@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="theme-color" content="#0c0e11">
+  <title>Автоспас — демо-концепт лендинга</title>
+  <meta name="description" content="Демо-концепт лендинга автосервиса. Не официальный сайт.">
+  <style>
+:root{
+  --bg:#0c0e11; --surface:#14181d; --surface-2:#1a2027; --line:#252c35;
+  --text:#e9ecef; --muted:#98a1ac; --accent:#ff4d2e; --accent-2:#ff8552;
+  --radius:16px; --max:1440px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);
+  font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{margin:0 0 .5em;line-height:1.15;letter-spacing:-.02em}
+p{margin:0 0 1em}
+[hidden]{display:none!important}
+.container{width:100%;max-width:var(--max);margin:0 auto;padding:0 16px}
+.muted{color:var(--muted)}
+.note{color:var(--muted);font-size:13px;margin-top:16px}
+.accent{color:var(--accent)}
+
+/* демо-плашка */
+.demo-bar{background:#2a1207;color:#ffb59f;font-size:12px;line-height:1.4;
+  text-align:center;padding:8px 12px;border-bottom:1px solid #48200f;letter-spacing:.2px}
+
+/* хедер */
+.site-header{position:sticky;top:0;z-index:40;background:rgba(12,14,17,.86);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.2px}
+.logo{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#180a05;font-weight:800}
+.brand-text{display:flex;flex-direction:column;line-height:1.2}
+.brand-text small{font-size:11px;font-weight:500;color:var(--muted)}
+.nav{display:none}
+.header-phone{display:none;font-size:14px;font-weight:600;color:var(--muted)}
+.header-actions{display:flex;align-items:center;gap:14px}
+
+/* кнопки */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:14px 22px;border-radius:12px;border:1px solid transparent;
+  background:var(--accent);color:#180a05;font:inherit;font-weight:700;cursor:pointer;
+  transition:background .15s ease,transform .12s ease}
+.btn:hover{background:var(--accent-2)}
+.btn:active{transform:translateY(1px)}
+.btn-ghost{background:transparent;color:var(--text);border-color:var(--line)}
+.btn-ghost:hover{background:var(--surface-2)}
+.btn-sm{padding:10px 16px;font-size:14px;border-radius:10px}
+
+/* hero */
+.hero{padding:36px 0 44px;background:
+  radial-gradient(900px 380px at 85% -10%, rgba(255,77,46,.16), transparent 62%),
+  radial-gradient(700px 300px at -10% 110%, rgba(255,133,82,.08), transparent 62%)}
+.hero-inner{display:grid;gap:28px}
+.eyebrow{margin:0 0 10px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.hero h1{font-size:clamp(30px,8vw,54px);margin:0 0 14px}
+.lead{color:var(--muted);font-size:17px;max-width:46ch}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 18px}
+.chips{list-style:none;display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0}
+.chips li{font-size:13px;color:var(--muted);border:1px solid var(--line);
+  border-radius:999px;padding:6px 12px;background:rgba(255,255,255,.02)}
+.hero-media{position:relative;aspect-ratio:16/10;border-radius:var(--radius);
+  border:1px solid var(--line);overflow:hidden;display:grid;place-items:center;
+  background:linear-gradient(135deg,#1b222a,#11151a)}
+.hero-mark{font-size:clamp(80px,26vw,170px);font-weight:800;letter-spacing:-.06em;
+  color:transparent;-webkit-text-stroke:2px rgba(255,77,46,.28)}
+
+/* секции */
+.section{padding:44px 0;border-top:1px solid var(--line)}
+.section h2{font-size:clamp(22px,5vw,32px)}
+.section-head{max-width:60ch;margin-bottom:22px}
+.section-head p{margin:0}
+
+/* услуги: карточка с фото */
+.grid-services{display:grid;gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;display:flex;flex-direction:column;
+  transition:border-color .15s ease,transform .15s ease}
+.card:hover{border-color:#39424d;transform:translateY(-2px)}
+.card-photo{aspect-ratio:4/3;overflow:hidden;background:#151a20;position:relative}
+.card-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.card-photo.no-photo{display:grid;place-items:center;color:#5d6771;font-size:13px;
+  background:repeating-linear-gradient(45deg,#151a20,#151a20 10px,#12161b 10px,#12161b 20px)}
+.card-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card-body h3{font-size:15px;margin:0;line-height:1.3;letter-spacing:-.01em}
+.card-body h3.placeholder{color:var(--muted);font-weight:600}
+.card-body .price{margin:0;font-weight:700;font-size:17px;margin-top:auto}
+.card-body .price.empty{color:#5d6771;font-weight:600}
+
+/* отзывы */
+.reviews-grid{display:grid;gap:12px}
+.review{background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--radius);padding:18px}
+.review .stars{margin:0 0 8px;font-size:14px;letter-spacing:2px;color:var(--accent)}
+.review .stars .off{color:#3a434d}
+.review.low .stars{color:#8b96a1}
+.review p{margin:0;font-size:15px;line-height: 1.6;color:var(--text);white-space: pre-wrap}
+
+/* запись */
+.booking{display:grid;gap:24px}
+.form{display:grid;gap:12px;grid-template-columns:1fr;background:var(--surface);
+  border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+.form label{display:grid;gap:6px;font-size:13px;color:var(--muted)}
+input,textarea{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:10px;
+  padding:12px 14px;color:var(--text);font:inherit}
+input:focus,textarea:focus{outline:2px solid rgba(255,77,46,.45);outline-offset:1px;border-color:var(--accent)}
+.full{grid-column:1/-1}
+.form-status{margin:0;font-size:13px;color:var(--accent-2)}
+
+/* контакты */
+.contacts-grid{display:grid;gap:12px;grid-template-columns:1fr}
+.contact-card{background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--radius);padding:18px}
+.contact-card h3{font-size:13px;text-transform:uppercase;letter-spacing:.12em;
+  color:var(--muted);font-weight:600;margin:0 0 8px}
+.contact-card p{margin:0}
+.contact-card a{color:var(--accent-2)}
+
+/* футер */
+.site-footer{border-top:1px solid var(--line);padding:26px 0 34px;font-size:13px}
+.footer-inner p{margin:0 0 6px}
+.site-footer strong{font-weight:700}
+
+/* адаптив */
+@media (min-width:600px){
+  .grid-services{grid-template-columns:1fr 1fr}
+  .reviews-grid{grid-template-columns:1fr 1fr}
+  .contacts-grid{grid-template-columns:1fr 1fr}
+}
+@media (min-width:860px){
+  .nav{display:flex;gap:22px;font-size:14px;color:var(--muted)}
+  .nav a:hover{color:var(--text)}
+  .header-phone{display:inline}
+}
+@media (min-width:900px){
+  /* Делаем первый экран во всю высоту */
+  .hero {
+    min-height: calc(100vh - 120px); 
+    display: flex;
+    align-items: center;
+    padding: 0;
+  }
+  
+  .hero-inner{grid-template-columns:1.1fr .9fr;align-items:center;gap:60px}
+  .hero h1 { font-size: clamp(40px, 5vw, 64px); } /* Увеличили заголовок */
+  
+  .section{padding:80px 0}
+  .grid-services{grid-template-columns:repeat(3,1fr);gap:24px}
+  
+  /* Сетка отзывов: делаем карточки более вытянутыми */
+  .reviews-grid{grid-template-columns:repeat(auto-fill, minmax(340px, 1fr)); gap:20px;}
+  
+  .contacts-grid{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+  .booking{grid-template-columns:.9fr 1.1fr;gap:44px;align-items:start}
+  .form{grid-template-columns:1fr 1fr;padding:32px}
+  /* Стили для картинки в Hero */
+/* Стили для картинки в Hero */
+.hero-media {
+  position: relative;
+  aspect-ratio: 16/10;
+  max-height: 500px; /* Ограничиваем высоту картинки */
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  background: #151a20;
+}
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+}
+</style>
+</head>
+<body>
+  <div class="demo-bar" role="note">Демо-концепт, не официальный сайт, удалим по первой просьбе</div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top">
+        <span class="logo" aria-hidden="true">А</span>
+        <span class="brand-text">
+          <span data-name>Автоспас</span>
+          <small data-hours-wrap>Ежедневно, <span data-hours></span></small>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Основная навигация">
+        <a href="#services">Услуги</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#booking">Запись</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="header-phone" data-phone hidden></a>
+        <a class="btn btn-sm" href="#booking">Записаться</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+       <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="eyebrow">Автосервис</p>
+          <h1><span data-name>Автоспас</span> — <span class="accent">запись на обслуживание</span></h1>
+          <p class="lead" data-hours-line>Работаем <span data-hours></span>.</p>
+          <div class="actions">
+            <a class="btn" href="#booking">Записаться</a>
+            <a class="btn btn-ghost" data-map href="#" target="_blank" rel="noopener">Как добраться</a>
+          </div>
+          <ul class="chips">
+            <li data-hours-chip hidden></li>
+            <li>Демо-концепт</li>
+          </ul>
+        </div>
+                <div class="hero-media">
+          <svg class="hero-img" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#1b222a"/>
+                <stop offset="100%" stop-color="#0c0e11"/>
+              </linearGradient>
+              <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ff4d2e"/>
+                <stop offset="100%" stop-color="#ff8552"/>
+              </linearGradient>
+            </defs>
+            
+            <!-- Фон -->
+            <rect width="100%" height="100%" fill="url(#bg)"/>
+            
+            <!-- Сетка (для технологичности) -->
+            <path d="M0,100 L800,100 M0,200 L800,200 M0,300 L800,300 M0,400 L800,400 M100,0 L100,500 M200,0 L200,500 M300,0 L300,500 M400,0 L400,500 M500,0 L500,500 M600,0 L600,500 M700,0 L700,500" stroke="#252c35" stroke-width="1" opacity="0.4"/>
+            
+            <!-- Автомобильное колесо -->
+            <g transform="translate(400, 250)">
+              <circle r="180" fill="none" stroke="#39424d" stroke-width="2"/>
+              <circle r="130" fill="none" stroke="url(#accent)" stroke-width="8" opacity="0.9"/>
+              <circle r="90" fill="none" stroke="#252c35" stroke-width="4"/>
+              <circle r="25" fill="url(#accent)"/>
+              
+              <!-- Спицы -->
+              <line x1="0" y1="-130" x2="0" y2="-90" stroke="url(#accent)" stroke-width="10" stroke-linecap="round"/>
+              <line x1="0" y1="130" x2="0" y2="90" stroke="url(#accent)" stroke-width="10" stroke-linecap="round"/>
+              <line x1="-130" y1="0" x2="-90" y2="0" stroke="url(#accent)" stroke-width="10" stroke-linecap="round"/>
+              <line x1="130" y1="0" x2="90" y2="0" stroke="url(#accent)" stroke-width="10" stroke-linecap="round"/>
+              
+              <line x1="-92" y1="-92" x2="-63" y2="-63" stroke="#39424d" stroke-width="10" stroke-linecap="round"/>
+              <line x1="92" y1="92" x2="63" y2="63" stroke="#39424d" stroke-width="10" stroke-linecap="round"/>
+              <line x1="-92" y1="92" x2="-63" y2="63" stroke="#39424d" stroke-width="10" stroke-linecap="round"/>
+              <line x1="92" y1="-92" x2="63" y2="-63" stroke="#39424d" stroke-width="10" stroke-linecap="round"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head">
+          <h2>Услуги и цены</h2>
+          <p class="muted">Цены — из прайса сервиса. Фото — иллюстрации к услугам.</p>
+        </div>
+        <div class="grid-services" id="services-grid"></div>
+      </div>
+    </section>
+
+    <section class="section" id="reviews">
+      <div class="container">
+        <div class="section-head">
+          <h2>Отзывы</h2>
+          <p class="muted">Пересказ отзывов клиентов: формулировки обобщены, имена авторов и сотрудников не публикуются.</p>
+        </div>
+        <div class="reviews-grid" id="reviews-grid"></div>
+        <p class="note">В отзывах с оценкой ниже 5★ — то, что клиенты просили поправить. Мы не скрываем критику.</p>
+      </div>
+    </section>
+
+    <section class="section" id="booking">
+      <div class="container booking">
+        <div class="booking-text">
+          <h2>Запись на сервис</h2>
+          <p class="muted">Демо-форма: заявки не отправляются и никуда не сохраняются.</p>
+          <p class="muted" data-hours-line2>Режим работы: <span data-hours></span>.</p>
+        </div>
+        <form class="form" novalidate>
+          <label>Имя
+            <input type="text" name="name" placeholder="Как к вам обращаться" autocomplete="name">
+          </label>
+          <label>Телефон
+            <input type="tel" name="phone" placeholder="+7 ..." autocomplete="tel">
+          </label>
+          <label class="full">Комментарий
+            <textarea name="comment" rows="3" placeholder="Марка авто, что нужно сделать"></textarea>
+          </label>
+          <button class="btn full" type="submit">Отправить заявку</button>
+          <p class="form-status full" role="status" hidden>Это демо: данные не отправляются.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" id="contacts">
+      <div class="container">
+        <h2>Контакты</h2>
+        <div class="contacts-grid">
+          <div class="contact-card" data-hours-card>
+            <h3>Режим работы</h3>
+            <p data-hours></p>
+          </div>
+          <div class="contact-card" data-address-card hidden>
+            <h3>Адрес</h3>
+            <p data-address></p>
+          </div>
+          <div class="contact-card" data-phone-card hidden>
+            <h3>Телефон</h3>
+            <p><a data-phone></a></p>
+          </div>
+          <div class="contact-card">
+            <h3>На карте</h3>
+            <p><a data-map href="#" target="_blank" rel="noopener">Открыть в Яндекс.Картах</a></p>
+          </div>
+        </div>
+        <p class="note">Адрес и телефон в демо не указаны — этих данных нет в исходнике.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p><strong data-name>Автоспас</strong> · <span data-hours></span></p>
+      <p class="muted">Демо-концепт, не официальный сайт, удалим по первой просьбе. <span data-year></span></p>
+    </div>
+  </footer>
+
+  <script>
+window.SITE_DATA = {
+  name: "Автоспас",
+  hours: "Пн–Вс, 9:00–21:00",
+  phone: "+7 (495) 777-68-00",
+  address: "Грохольский пер., 29, корп. 1, Москва",
+  mapUrl: "https://yandex.ru/maps/org/avtospas/1070164398/",
+
+  services: [
+    { title: "Мойка а/м", price: "1500 ₽", src: "https://avatars.mds.yandex.net/get-sprav-products/10022375/2a0000018ddaef95782b77f31a5ee877b20e/M_height" },
+    { title: "Антибактериальная обработка кондиционера", price: "4750 ₽", src: "https://avatars.mds.yandex.net/get-sprav-products/2781182/2a000001979c32d350b4567b72f0b8896a01/M_height" },
+    { title: "Диагностика системы парктроников", price: "5000 ₽", src: "https://avatars.mds.yandex.net/get-sprav-products/1644120/2a00000186077c53aa789e4b3e7a3bc272d9/M_height" },
+    { title: "Диагностика ходовой части", price: "2500 ₽", src: "https://avatars.mds.yandex.net/get-sprav-products/2413620/2a00000195bd287a28a4e1774abb714c97da/M_height" },
+    { title: "Замена антифриза (охлаждающей жидкости)", price: "5000 ₽", src: "https://avatars.mds.yandex.net/get-sprav-products/1644120/2a00000194da0ca3d8e77ff52923108c8203/M_height" },
+    { title: "Замена воздушного фильтра", price: "1500 ₽", src: "https://avatars.mds.yandex.net/get-sprav-products/1356083/2a00000198db6ad8b42905a5f4f842746614/M_height" },
+    { title: "Масляный сервис", price: "3500 ₽", src: "https://avatars.mds.yandex.net/get-sprav-products/5236693/2a0000018b493052677d5f6d0be76eacb3d4/M_height" },
+    { title: "Замена салонного фильтра", price: "2000 ₽", src: "https://avatars.mds.yandex.net/get-sprav-products/8331772/2a00000198db6ce1e28a9b2c76ee5d46127c/M_height" },
+    { title: "Замена свечей зажигания", price: "2500 ₽", src: "https://avatars.mds.yandex.net/get-sprav-products/1530321/2a000001979c2da254a19edb9699b10a1729/M_height" },
+    { title: "Замена тормозной жидкости", price: "4500 ₽", src: "https://avatars.mds.yandex.net/get-sprav-products/5280674/2a000001920a72a3a5295e0299b4a1d30731/M_height" },
+    { title: "Заправка кондиционера фреоном", price: "5000 ₽", src: "https://avatars.mds.yandex.net/get-sprav-products/10118156/2a0000018e226c3a07e8333842150cb6a0ef/M_height" },
+    { title: "Компьютерная диагностика (тест-блок)", price: "2500 ₽", src: "https://avatars.mds.yandex.net/get-sprav-products/2808945/2a00000196b0cf7ca1c47bf7a2ef4f95c83e/M_height" },
+    { title: "Мойка радиаторов охлаждения", price: "25000 ₽", src: "https://avatars.mds.yandex.net/get-sprav-products/10253960/2a00000196b06d05fb663ed76d05181674a8/M_height" },
+    { title: "Обслуживание петель и замков дверей", price: "1200 ₽", src: "https://avatars.mds.yandex.net/get-sprav-products/1530321/2a00000198db8258334bdf2838d9d23d4faa/M_height" },
+    { title: "Промывка инжектора", price: "9800 ₽", src: "https://avatars.mds.yandex.net/get-sprav-products/8331772/2a000001979c27410f724f47bc122036f4c4/M_height" },
+    { title: "Регулировка света фар", price: "2400 ₽", src: "https://avatars.mds.yandex.net/get-sprav-products/2773996/2a000001979c36247916a77b18aac5cbf224/M_height" },
+    { title: "Замена хомута глушителя", price: "1500 ₽", src: "https://avatars.mds.yandex.net/get-sprav-products/8331772/2a00000198db770e948e300e777e7cbe812c/M_height" },
+    { title: "Обслуживание тормозных механизмов", price: "4500 ₽", src: "https://avatars.mds.yandex.net/get-sprav-products/8331772/2a00000198db8b63a8817f7531fe98f6c25e/M_height" },
+    { title: "Регулировка развал-схождения колес", price: "7500 ₽", src: "https://avatars.mds.yandex.net/get-sprav-products/1521147/2a00000196b0469f2b7a9645d7582f70b35d/M_height" },
+    { title: "Ремонт колеса (установка жгута)", price: "1500 ₽", src: "https://avatars.mds.yandex.net/get-sprav-products/12411943/2a0000018c7334e3ff62de0cb390d6f40459/M_height" },
+    { title: "Ремонт колеса (установка заплатки)", price: "3000 ₽", src: "https://avatars.mds.yandex.net/get-sprav-products/10324913/2a00000192006fcfff6df8de05011afdb12e/M_height" }
+  ],
+
+  // Пересказ отзывов. Имена авторов и сотрудников убраны, формулировки обобщены.
+  // stars — оценка из выгрузки, по ней рисуются звёзды.
+        reviews: [
+    { stars: 5.0, date: "22 мая 2026", text: "Хороший сервис. Обратился с машиной не их профильного направления (Корея). Но помогли без проблем. Все очень четко, качественно и быстро. На приемке ребята профессионалы, объяснили ход работ и озвучили цену. Так и получилось. Сервис рекомендую однозначно." },
+    { stars: 5.0, date: "20 февраля 2026", text: "Потрясающий сервис. От нас отказались 7 сервисов до этого. Нужен был срочный ремонт перед дальней дорогой. Не отказали. Встретили. Интеллигентные, вежливые,…" },
+    { stars: 5.0, date: "27 июля 2026", text: "Отличный центр!!! Приветливые, знающие сотрудники! Все работы выполняют быстро, качественно и по очень приемлемым ценам. Обслуживают мои машины более 20 лет и я не на какую другую организацию этих замечательных специалистов я не заменю. Спасибо им…" },
+    { stars: 5.0, date: "22 декабря 2025", text: "Уже не раз пользовалась данным автосервисом \"Спас\" на Грохольском. Грамотные вежливые ребята, рекомендации тоже толковые. Посчитали быстро цены на ремонт и заказ запчастей, распечатали лист диагностики с полным перечнем и ценами работ и запчастей, все подробно,…" },
+    { stars: 5.0, date: "22 июля 2025", text: "Работу сотрудников сервиса оцениваю на 5+. Мастера свою работу знают, не навязывают дополнительные не нужные опции. Все по делу объясняют, помогут разобраться. Менял Сайлент блоки передней подвески на Audi Q5 в июле 2025. Болты…" },
+    { stars: 5.0, date: "19 июня 2025", text: "Добрый день. Хочу порекомендовать всем этот автосервис. Хорошее качественное обслуживание, по умеренным ценам оригинальные запасные части. Персонал приемки внимательный, мастера хорошо знающие своё дело. Всегда буду приезжать только сюда." },
+    { stars: 5.0, date: "19 февраля 2025", text: "Долго искал хорошую мойку, где действительно качественно делают работу, и наконец нашел! Машину отмыли идеально, даже диски и пороги блестят. Салон почистили до мелочей, никаких разводов на стеклах. Отличное соотношение цены и качества!" },
+    { stars: 4.0, date: "29 января 2024", text: "Недёшево, но качественно" },
+    { stars: 1.0, date: "7 февраля 2023", text: "По телефону объявляют одну сумму, приезжаешь объявляют совсем другую. Дорого." }
+  ]
+};
+</script>
+  <script>
+(function () {
+  var d = window.SITE_DATA || {};
+  var q = function (s) { return document.querySelector(s); };
+  var all = function (s) { return Array.prototype.slice.call(document.querySelectorAll(s)); };
+  var show = function (n, on) { if (n) n.hidden = !on; };
+
+  // Название
+  if (d.name) all('[data-name]').forEach(function (n) { n.textContent = d.name; });
+
+  // Часы работы
+  var hours = d.hours || null;
+  all('[data-hours]').forEach(function (n) { n.textContent = hours || ''; });
+  show(q('[data-hours-wrap]'), !!hours);
+  show(q('[data-hours-card]'), !!hours);
+  show(q('[data-hours-line]'), !!hours);
+  show(q('[data-hours-line2]'), !!hours);
+  var chip = q('[data-hours-chip]');
+  if (chip) { chip.textContent = hours || ''; show(chip, !!hours); }
+
+  // Телефон — нет данных → блок скрыт
+  var phone = d.phone || null;
+  all('[data-phone]').forEach(function (n) {
+    if (!phone) { show(n.closest('[data-phone-card]') || n, false); return; }
+    n.textContent = phone;
+    if (n.tagName === 'A') n.href = 'tel:' + phone.replace(/[^\d+]/g, '');
+  });
+  show(q('[data-phone-card]'), !!phone);
+
+  // Адрес — нет данных → блок скрыт
+  var address = d.address || null;
+  all('[data-address]').forEach(function (n) { n.textContent = address || ''; });
+  show(q('[data-address-card]'), !!address);
+
+  // Карта — только реальная ссылка
+  all('[data-map]').forEach(function (a) {
+    if (d.mapUrl) a.href = d.mapUrl; else show(a, false);
+  });
+
+  // Услуги (фото + название + цена)
+  var services = d.services || [];
+  var sGrid = document.getElementById('services-grid');
+  show(document.getElementById('services'), services.length > 0);
+
+  services.forEach(function (s) {
+    var card = document.createElement('article');
+    card.className = 'card';
+
+    var photo = document.createElement('div');
+    photo.className = 'card-photo';
+    if (s.src) {
+      var img = document.createElement('img');
+      img.src = s.src;
+      img.alt = s.title || '';
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      img.onerror = function () {
+        img.remove();
+        photo.classList.add('no-photo');
+        photo.textContent = 'Фото недоступно';
+      };
+      photo.appendChild(img);
+    } else {
+      photo.classList.add('no-photo');
+      photo.textContent = 'Фото уточняется';
+    }
+    card.appendChild(photo);
+
+    var body = document.createElement('div');
+    body.className = 'card-body';
+
+    var h = document.createElement('h3');
+    h.textContent = s.title || 'Услуга уточняется';
+    if (!s.title) h.classList.add('placeholder');
+    body.appendChild(h);
+
+    var price = document.createElement('p');
+    price.className = 'price';
+    if (s.price != null) {
+      price.textContent = s.price;
+    } else {
+      price.classList.add('empty');
+      price.textContent = '—';
+      price.title = 'Нет данных о цене';
+    }
+    body.appendChild(price);
+
+    card.appendChild(body);
+    sGrid.appendChild(card);
+  });
+
+  // Отзывы (пересказ, без имён)
+    // Отзывы (пересказ, без имён)
+  var reviews = d.reviews || [];
+  var rGrid = document.getElementById('reviews-grid');
+  show(document.getElementById('reviews'), reviews.length > 0);
+
+  reviews.forEach(function (r) {
+    var card = document.createElement('article');
+    card.className = 'review' + (r.stars >= 4 ? '' : ' low');
+
+    // Шапка отзыва: звезды и дата
+    var header = document.createElement('div');
+    header.className = 'review-header';
+
+    var stars = document.createElement('p');
+    stars.className = 'stars';
+    stars.setAttribute('aria-label', 'Оценка: ' + r.stars + ' из 5');
+    for (var i = 0; i < 5; i++) {
+      var st = document.createElement('span');
+      st.textContent = '★';
+      if (i >= r.stars) { st.className = 'off'; st.setAttribute('aria-hidden', 'true'); }
+      stars.appendChild(st);
+    }
+    header.appendChild(stars);
+
+    if (r.date) {
+      var dateSpan = document.createElement('span');
+      dateSpan.className = 'review-date';
+      dateSpan.textContent = r.date;
+      header.appendChild(dateSpan);
+    }
+
+    card.appendChild(header);
+
+    var p = document.createElement('p');
+    p.textContent = r.text;
+    card.appendChild(p);
+
+    rGrid.appendChild(card);
+  });
+})();
+</script>
+</body>
+</html>
